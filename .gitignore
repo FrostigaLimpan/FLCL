@@ -27,3 +27,11 @@
 *.exe
 *.out
 *.app
+
+# Other files and directories
+*.opendb
+*.db
+Bin/**
+Build/**
+Solution/**
+
