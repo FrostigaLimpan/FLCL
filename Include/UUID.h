@@ -1,5 +1,6 @@
 #pragma once
-#include <stdint.h>
+//#include <stdint.h>
+#include <Types.h>
 #include <string>
 #include <random>
 #include <iostream>
@@ -34,11 +35,11 @@ namespace FLCL {
 		struct UUID {
 
 			union {
-				uint64_t data[2];
+				UInt64 data[2];
 
 				struct {
-					uint64_t data1;
-					uint64_t data2;
+					UInt64 data1;
+					UInt64 data2;
 				};
 
 			};
@@ -60,10 +61,10 @@ namespace FLCL {
 					ss << std::hex << std::nouppercase << std::setfill('0');
 
 
-				uint32_t first = (data[0] >> 32);
-				uint32_t second = (data[0] & 0xFFFFFFFF);
-				uint32_t third = (data[1] >> 32);
-				uint32_t fourth = (data[1] & 0xFFFFFFFF);
+				UInt32 first = (data[0] >> 32);
+				UInt32 second = (data[0] & 0xFFFFFFFF);
+				UInt32 third = (data[1] >> 32);
+				UInt32 fourth = (data[1] & 0xFFFFFFFF);
 
 				ss << std::setw(8) << (first) << '-';
 				ss << std::setw(4) << (second >> 16) << '-';
@@ -96,7 +97,7 @@ namespace FLCL {
 		*/
 		UUID Create_UUID() {
 			std::random_device rdev;
-			std::uniform_int_distribution<uint64_t> dist(0, (uint64_t)(~0));
+			std::uniform_int_distribution<UInt64> dist(0, (UInt64)(~0));
 
 			UUID res = {};
 
@@ -131,11 +132,11 @@ namespace FLCL {
 		*/
 		void Parse_Raw_UUID(const std::string &str, UUID *uuid) {
 			char tmpChar;
-			uint64_t firstBlock;
-			uint64_t secondBlock;
-			uint64_t thirdBlock;
-			uint64_t fourthBlock;
-			uint64_t fifthBlock;
+			UInt64 firstBlock;
+			UInt64 secondBlock;
+			UInt64 thirdBlock;
+			UInt64 fourthBlock;
+			UInt64 fifthBlock;
 
 			std::stringstream ss(str);
 			if (ss >> std::hex >> firstBlock >> tmpChar >> secondBlock >> tmpChar >> thirdBlock >> tmpChar >> fourthBlock >> tmpChar >> fifthBlock) {
@@ -153,11 +154,11 @@ namespace FLCL {
 		*/
 		void Parse_UUID(const std::string &str, UUID *uuid) {
 			char tmpChar;
-			uint64_t firstBlock;
-			uint64_t secondBlock;
-			uint64_t thirdBlock;
-			uint64_t fourthBlock;
-			uint64_t fifthBlock;
+			UInt64 firstBlock;
+			UInt64 secondBlock;
+			UInt64 thirdBlock;
+			UInt64 fourthBlock;
+			UInt64 fifthBlock;
 
 			std::stringstream ss(str);
 			if (ss >> tmpChar >> std::hex >> firstBlock >> tmpChar >> secondBlock >> tmpChar >> thirdBlock >> tmpChar >> fourthBlock >> tmpChar >> fifthBlock >> tmpChar) {
