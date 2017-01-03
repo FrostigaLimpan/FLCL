@@ -3,7 +3,7 @@
 namespace FLCL {
 
 	/*
-		Utilityfuntion for checking if the value is a whitespace character or not
+		Utility function for checking if the value is a whitespace character or not
 	*/
 	inline bool isWhitespace(char chr) {
 
@@ -21,7 +21,7 @@ namespace FLCL {
 	}
 
 	/*
-		Utilityfuntion for checking if the value is a alphanumeric character or not
+		Utility function for checking if the value is a alphanumeric character or not
 	*/
 	inline bool isAlpha(char chr) {
 
@@ -44,7 +44,7 @@ namespace FLCL {
 	}
 
 	/*
-		Utilityfuntion for checking if the value is a alphanumeric character or not.
+		Utility function for checking if the value is a alphanumeric character or not.
 		This version uses an array of defined characters to verify against.
 	*/
 	inline bool isAlpha2(char c)
@@ -62,7 +62,7 @@ namespace FLCL {
 	}
 
 	/*
-		Utilityfuntion for checking if the value is a digit or not
+		Utility function for checking if the value is a digit or not
 	*/
 	inline bool isDigit(char chr) {
 		return (chr >= '0') && (chr <= '9');
