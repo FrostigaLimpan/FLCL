@@ -52,7 +52,7 @@ namespace FLCL {
 				return !operator==(other);
 			};
 
-			inline std::string toString(bool raw = false, bool uppercase = false) const {
+			inline std::string ToString(bool raw = false, bool uppercase = false) const {
 				std::stringstream ss;
 				if (!raw) ss << "{";
 				if (uppercase)
@@ -78,7 +78,7 @@ namespace FLCL {
 			};
 
 			inline friend std::ostream &operator<<(std::ostream &out, const UUID &self) {
-				out << self.toString(false);
+				out << self.ToString(false);
 				return out;
 			};
 
@@ -95,7 +95,7 @@ namespace FLCL {
 		Ex: {a799c064-2329-4b22-8d20-1f8970b62376}
 
 		*/
-		UUID Create_UUID() {
+		UUID CreateUUID() {
 			std::random_device rdev;
 			std::uniform_int_distribution<UInt64> dist(0, (UInt64)(~0));
 
@@ -117,7 +117,7 @@ namespace FLCL {
 
 		Ex: {00000000-0000-0000-0000-000000000000}
 		*/
-		UUID Create_Empty_UUID() {
+		UUID CreateEmptyUUID() {
 			UUID res = {};
 
 			return res;
@@ -130,7 +130,7 @@ namespace FLCL {
 		The canonical form is five groups (blocks) in the form: 8-4-4-4-12 for a total of
 		36 chars (32 alphanumeric chars and four hypens).
 		*/
-		void Parse_Raw_UUID(const std::string &str, UUID *uuid) {
+		void ParseRawUUID(const std::string &str, UUID *uuid) {
 			char tmpChar;
 			UInt64 firstBlock;
 			UInt64 secondBlock;
@@ -152,7 +152,7 @@ namespace FLCL {
 		The canonical form is five groups (blocks) in the form: 8-4-4-4-12 for a total of
 		36 chars (32 alphanumeric chars and four hypens).
 		*/
-		void Parse_UUID(const std::string &str, UUID *uuid) {
+		void ParseUUID(const std::string &str, UUID *uuid) {
 			char tmpChar;
 			UInt64 firstBlock;
 			UInt64 secondBlock;
@@ -173,13 +173,13 @@ namespace FLCL {
 		The canonical form is five groups (blocks) in the form: 8-4-4-4-12 for a total of
 		36 chars (32 alphanumeric chars and four hypens).
 		*/
-		UUID Parse_UUID(const std::string &str) {
+		UUID ParseUUID(const std::string &str) {
 			UUID res = {};
 
 			if (str.c_str()[0] == '{')
-				Parse_UUID(str, &res);
+				ParseUUID(str, &res);
 			else
-				Parse_Raw_UUID(str, &res);
+				ParseRawUUID(str, &res);
 
 			return res;
 		}
