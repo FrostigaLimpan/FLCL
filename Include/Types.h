@@ -34,4 +34,12 @@ namespace FLCL {
 		using IntPtr = std::intptr_t;
 		using UIntPtr = std::uintptr_t;
 
+		using memory_index = USize;
+		using umm = UIntPtr;
+
+		static const char DecChars[] = "0123456789";
+		static const char LowerHexChars[] = "0123456789abcdef";
+		static const char UpperHexChars[] = "0123456789ABCDEF";
+		static const char Chrs[] = "abcdefghijklmnopqrstuvwxyzåäöABCDEFGHIJKLMNOPQRSTUVWXYZÅÄÖ";
+
 } // namespace FLCL
